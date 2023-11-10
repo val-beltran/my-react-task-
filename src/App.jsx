@@ -1,22 +1,32 @@
-import "App.css";
+import "./App.css";
 import Header from "./Components/Header";
 import TaskList from "./Components/TaskList";
-
-const todoList = [
-  { id: 1, name: "Lavar los platos", completed: true },
-  { id: 2, name: "Lavar los dientes", completed: false },
-  { id: 3, name: "Planchar la ropa", completed: true },
-];
+import TaskForm from "./Components/TaskForm";
+import Footer from "./Components/Footer";
+import { useToDo } from "./hooks/useToDo";
 
 function App() {
+  const {
+    list,
+    pendingToDo,
+    addTask,
+    onDeleteItem,
+    onEditTask,
+    onCompleted,
+    onDeleteList,
+  } = useToDo();
+
   return (
     <div className="mainBox">
       <Header />
-      <TaskList list={todoList} />
-      <span className="finalBox">
-        <p className="finalText">Tu tienes 2 tareas pendientes</p>
-        <button className="buttonClear">Borrar</button>
-      </span>
+      <TaskForm addTask={addTask} />
+      <TaskList
+        list={list}
+        onCompleted={onCompleted}
+        onDeleteItem={onDeleteItem}
+        onEditTask={onEditTask}
+      />
+      <Footer onDeleteList={onDeleteList} pendingToDo={pendingToDo} />
     </div>
   );
 }
