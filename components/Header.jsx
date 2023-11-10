@@ -1,7 +1,7 @@
 export default function Header() {
-    return (
-      <div>
-        <h2>To-Do List</h2>
-      </div>
-    );
-  }
+  return (
+    <div className="head">
+      <h2>To-Do List</h2>
+    </div>
+  );
+}
