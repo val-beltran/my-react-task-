@@ -14,14 +14,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@react-icons/all-files": "^4.1.0",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "framer-motion": "^10.16.4",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hooks": "^1.0.1",
     "react-icons": "^4.10.1",
-    "sweetalert": "^2.1.2"
+    "react-scrollbars-custom": "^4.1.1",
+    "sweetalert": "^2.1.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
@@ -29,8 +36,10 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.44.0",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
     "nodemon": "^3.0.1",
+    "typescript": "^5.2.2",
     "vite": "^4.4.0"
   },
   "description": ""
