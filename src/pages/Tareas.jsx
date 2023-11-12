@@ -1,15 +1,15 @@
 import "../App.css";
-import Header from "../components/Header";
-import TaskList from "../components/TaskList";
-import TaskForm from "../components/TaskForm";
-import Footer from "../components/Footer";
-import { useToDo } from "../../hooks/useToDo";
+import Header from "../Components/Header";
+import TaskList from "../Components/TaskList";
+import TaskForm from "../Components/TaskForm";
+import Footer from "../Components/Footer";
+import { useToDo } from "../hooks/useToDo";
+import { Flex } from "@chakra-ui/react";
 
-function Tareas(){
+function Tareas() {
     const {
         list,
         pendingToDo,
-        completedToDo,
         addTask,
         onDeleteItem,
         onEditTask,
@@ -17,22 +17,23 @@ function Tareas(){
         onDeleteList,
     } = useToDo();
 
-    return(
-        <div className="mainBox">
-            <Header />
-            <TaskForm addTask={addTask} />
-            <TaskList
-            list={list}
-            onCompleted={onCompleted}
-            onDeleteItem={onDeleteItem}
-            onEditTask={onEditTask}
-            />
-            <Footer
-            onDeleteList={onDeleteList}
-            pendingToDo={pendingToDo}
-            completedToDo={completedToDo}
-            />
-        </div>
+    return (
+        <Flex alignItems={"center"} justifyContent={"center"}>
+            <div className="mainBox">
+                <Header />
+                <TaskForm addTask={addTask} />
+                <TaskList>
+                    list={list}
+                    onCompleted={onCompleted}
+                    onEditTask={onEditTask}
+                </TaskList>
+                <Footer>
+                    onDeleteList={onDeleteList}
+                    pendingToDo={pendingToDo}
+                    completedToDo={completedToDo}
+                </Footer>
+            </div>
+        </Flex>
     );
 }
 

@@ -2,7 +2,7 @@ import { BiEdit, BiTrash, BiSave } from "react-icons/bi";
 import { FcCancel } from "react-icons/fc";
 import { useState } from "react";
 import "../App.css";
-import { Box, CheckBox, Flex, Stack } from "@chakra-ui/react"
+import { Box, Flex, useColorModeValue } from "@chakra-ui/react"
 
 
 export default function TasksCard(props) {
@@ -16,6 +16,8 @@ export default function TasksCard(props) {
     onEditTask, 
   } = props;
 
+  const color = useColorModeValue("black", "black");
+  
   const [editing, setEditing] = useState(false);
 
   function handleCompletedChange() {
