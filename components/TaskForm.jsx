@@ -12,7 +12,7 @@ export default function TaskForm(props) {
     });
 
     const handleSubmitForm = (e) => {
-        e..preventDefault();
+        e.preventDefault();
     };
 
     const onSubmitForm = () => {
@@ -28,7 +28,7 @@ export default function TaskForm(props) {
     const handleTaskNameChange = (e) => {
         const value = e.target.value;
 
-        //Validation
+
         if (value.length < 3) {
             setFormValidation({
                 ...formValidation,

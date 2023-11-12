@@ -1,4 +1,5 @@
 import { BiEdit, BiTrash } from "react-icons/bi";
+import { FcCancel } from "react-icons/fc";
 import { useState } from "react";
 import "../App.css";
 
@@ -33,9 +34,9 @@ export default function TasksCard(props) {
 
     function EditionOn() {
       const [editTask, setEditTask] = useState(name);
-      const [editDescription, setEsitDEscription] = useState(description);
+      const [editDescription, setEditDescription] = useState(description);
 
-      const handleCompletedChange = (e) => {
+      const handleEditTaskChange = (e) => {
         const newTextTask = e.target.value;
 
         setEditTask(newTextTask);
@@ -56,35 +57,47 @@ export default function TasksCard(props) {
           description: editDescription,
           completed: false,
         });
+
         setEditing(false);
+      };
+
+      const handleCancelClick = (e) => {
+        e.preventDefault();
       };
 
       return (
         <div className={getstyle()}>
-          <span className="edit">
-            Task
-            <input
-            className="inputEdit"
-            placeholder="Task"
-            type= "text"
-            value={editTask}
-            onChange={handleEditTaskChange}
-            />
-          </span>
-
-          <span className="edit">
-            Descripcion
-            <input
-            className="inputEdit"
-            type="text"
-            placeholder="description"
-            value={editDescription}
-            onChange={handleEditDescriptionChange}
-          />
-          </span>
-          <span className="edit">
+          <div className="form-edit">
+            <span className="edit">
+              Task
+              <input 
+              className="inputEdit"
+              placeholder="Task"
+              type="text"
+              value={editTask}
+              onChange={handleEditTaskChange}>
+              </input>
+            </span>
+            <span className="edit">
+              Description
+              <input
+              className="inputEdit"
+              type="text"
+              placeholder="Description"
+              value={editDescription}
+              onChange={handleEditDescriptionChange}>
+              </input>
+            </span>
+          </div>
+          <span>
             <button className="btn-task">
               <BiSave className="btn-save" onClick={handleSaveClick}></BiSave>
+            </button>
+            <button className="btn-task">
+              <FcCancel
+              className="btn-save"
+              onClick={() => setEditing(false)}
+              ></FcCancel>
             </button>
           </span>
         </div>
@@ -104,12 +117,12 @@ export default function TasksCard(props) {
             <br />
             {description}
           </span>
-          <span> 
+          <span>
             <button className="btn-task">
-              <BiEdit
+              <BiEdit 
               className="btn-edit"
-              onClick={() => setEditing(true)}>
-              </BiEdit>
+              onClick={() => setEditing(true)}
+              ></BiEdit>
             </button>
             <button className="btn-task" onClick={() => onDeleteItem(id)}>
               <BiTrash className="btn-delete"></BiTrash>
@@ -118,5 +131,6 @@ export default function TasksCard(props) {
         </div>
       );
     }
-  return <div>{editing ? <EditionOn /> : <EditionOff />}</div>;
-}
+
+    return <div>{editing ? <EditionOn /> : <EditionOff />}</div>;
+  }

@@ -1,5 +1,5 @@
 export default function Footer(props) {
-    const { onDeleteList, pendingToDo } = props;
+    const { onDeleteList, pendingToDo, completedToDo } = props;
 
     function handleClearClick() {
         onDeleteList();
@@ -7,10 +7,11 @@ export default function Footer(props) {
 
     return (
         <div className="footer">
-            <p>Tu tienes {pendingToDo} pendiente estas tareas</p>
+            <p className="msj-pending">Pendiente: {pendingToDo}</p>
+            <p>Completed: {completedToDo}</p>
             <button className="buttonClear" onClick={handleClearClick}>
-                Clear All
+                Borrar
             </button>
         </div>
     );
-}
+    }
